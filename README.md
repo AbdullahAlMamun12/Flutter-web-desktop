@@ -1,10 +1,22 @@
-# flutter_web_desktop
+# flutter web desktop
 
 A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Flutter web desk top like mackbook.
+Its contains
+  docker
+  desktop icons
+  application
+    calcultor
+    game
+    photo view
+    view player
+    audio player
+    pdf viewer
+    html viewer
+    
 
 A few resources to get you started if this is your first Flutter project:
 
