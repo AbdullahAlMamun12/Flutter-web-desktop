@@ -10,6 +10,7 @@ class DockController{
   late List<DockItem> items;
 
   WindowManager windowManager = Get.find<WindowManager>();
+
   DockController.fromList(this.items,this.callback);
   DockController(this.callback){
     items = _getFixedItems();
@@ -26,6 +27,7 @@ class DockController{
       DockItem("Video Player", FileType.APP_VIDEO_PLAYER,false),
       DockItem("PDF Reader", FileType.APP_PDF_READER,false),
       DockItem("HTML Reader", FileType.APP_HTML_READER,false),
+      DockItem("File Tree App", FileType.WIDGET_TREE,true),
     ];
   }
 

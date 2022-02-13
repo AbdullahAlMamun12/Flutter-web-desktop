@@ -54,7 +54,9 @@ class HomeController extends GetxController {
         windowManager.startCalculatorApp();
       } else if (item.fileType == FileType.APP_PAINTER) {
         windowManager.startPainterApp();
-      } else if (item.fileType == FileType.APP_FILE_MANAGER) {
+      } else if (item.fileType == FileType.WIDGET_TREE) {
+        windowManager.startWidgetTreeApp();
+      }else if (item.fileType == FileType.APP_FILE_MANAGER) {
         windowManager.startFolderApp();
       } else {
         windowManager.startMazeGame();

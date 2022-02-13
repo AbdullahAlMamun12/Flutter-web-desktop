@@ -51,57 +51,55 @@ class _MazeGameState extends ApplicationState {
         height: widget.windowHeight,
         width: widget.windowWidth,
         color: Resources.WINDOW_BODY_COLOR,
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text("Choose difficulty",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w800),),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new Radio<MazeDifficulty>(
-                    value: MazeDifficulty.easy,
-                    groupValue: _difficulty,
-                    onChanged: _handleRadioValueChange,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const Text("Choose difficulty",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w800),),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Radio<MazeDifficulty>(
+                  value: MazeDifficulty.easy,
+                  groupValue: _difficulty,
+                  onChanged: _handleRadioValueChange,
+                ),
+                const Text(
+                  'Easy',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                Radio<MazeDifficulty>(
+                  value: MazeDifficulty.medium,
+                  groupValue: _difficulty,
+                  onChanged: _handleRadioValueChange,
+                ),
+                const Text(
+                  'Medium',
+                  style: TextStyle(
+                    fontSize: 16.0,
                   ),
-                  new Text(
-                    'Easy',
-                    style: new TextStyle(fontSize: 16.0),
-                  ),
-                  new Radio<MazeDifficulty>(
-                    value: MazeDifficulty.medium,
-                    groupValue: _difficulty,
-                    onChanged: _handleRadioValueChange,
-                  ),
-                  new Text(
-                    'Medium',
-                    style: new TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  new Radio<MazeDifficulty>(
-                    value: MazeDifficulty.hard,
-                    groupValue: _difficulty,
-                    onChanged: _handleRadioValueChange,
-                  ),
-                  new Text(
-                    'Hard',
-                    style: new TextStyle(fontSize: 16.0),
-                  ),
-                ],
-              ),
-              ElevatedButton(onPressed: (){
-                setState(() {
-                  switch(_difficulty){
-                    case MazeDifficulty.easy: size = 5; break;
-                    case MazeDifficulty.medium: size = 20;break;
-                    case MazeDifficulty.hard: size = 40;break;
-                  }
-                  _status = MazeStatus.playing;
-                });
-              }, child: Text("Start"))
-            ],
-          ),
+                ),
+                Radio<MazeDifficulty>(
+                  value: MazeDifficulty.hard,
+                  groupValue: _difficulty,
+                  onChanged: _handleRadioValueChange,
+                ),
+                const Text(
+                  'Hard',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ],
+            ),
+            ElevatedButton(onPressed: (){
+              setState(() {
+                switch(_difficulty){
+                  case MazeDifficulty.easy: size = 5; break;
+                  case MazeDifficulty.medium: size = 20;break;
+                  case MazeDifficulty.hard: size = 40;break;
+                }
+                _status = MazeStatus.playing;
+              });
+            }, child: const Text("Start"))
+          ],
         ),
       );
        case MazeStatus.playing: return Container(

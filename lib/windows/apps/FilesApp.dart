@@ -25,7 +25,6 @@ class FilesApp extends Application {
    FilesApp( { required Key key,GlobalKey? appKey,  String? title,  WindowListener? listener, required this.currentFolder }) : super(key: key,appKey: appKey,title: title,listener: listener);
    @override
    double getHeight() {
-
      return 600;
    }
 
@@ -33,6 +32,7 @@ class FilesApp extends Application {
    double getWidth() {
      return 800;
    }
+
    @override
    FileType getFileType() {
      return FileType.APP_FILE_MANAGER;
@@ -159,6 +159,7 @@ class _FilesAppState extends ApplicationState {
   }
 
   late FileManager _fileManager;
+
   @override
   void initState() {
     super.initState();

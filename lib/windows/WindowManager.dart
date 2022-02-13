@@ -12,6 +12,7 @@ import 'package:flutter_web_desktop/windows/apps/VideoPlayer.dart';
 import 'package:flutter_web_desktop/windows/apps/FilesApp.dart';
 import 'package:flutter_web_desktop/windows/apps/htmlReader.dart';
 import 'package:flutter_web_desktop/windows/apps/pdfReader.dart';
+import 'package:flutter_web_desktop/windows/apps/widgets_tree_app.dart';
 import 'package:flutter_web_desktop/windows/draggableWindow.dart';
 import 'package:flutter_web_desktop/windows/window.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,6 @@ class WindowManager{
 
   WindowManager(){
     _fileManager = Get.find<FileManager>();
-
   }
 
   List<DraggableWindow> windows = List.empty(growable: true);
@@ -45,71 +45,55 @@ class WindowManager{
    
    
 
-  void startCalculatorApp(){
-
-    var key = UniqueKey();
-    var appKey = GlobalKey();
-    generateSimpleDraggableWindow(CalculatorApp(key: key,appKey: appKey, title: "Calculator"));
-  }
-
-  
-  
-  void startPdfApp(String path){
-
-    var key = UniqueKey();
-    var appKey = GlobalKey();
-
-    generateSimpleDraggableWindow(PdfReaderApp(title: "PDF Reader",appKey: appKey,key: key,path: path,));
-  }
-
-  void startMazeGame(){
-
-    var key = UniqueKey();
-    var appKey = GlobalKey();
-
-    generateSimpleDraggableWindow(MazeGameApp(title: "Game",appKey: appKey,key: key));
-  }
-
-  void startHtmlReader(String path){
-
-    var key = UniqueKey();
-    var appKey = GlobalKey();
-
-    generateSimpleDraggableWindow(HtmlReaderApp(title: "HTML Reader",appKey: appKey,key: key,path: path,));
-  }
-  void startPainterApp(){
-
-    var key = UniqueKey();
-    var appKey = GlobalKey();
-
-    generateSimpleDraggableWindow(PainterApp(title: "Painter",appKey: appKey, key: key,));
-
-  }
-
   void startFolderApp({Folder? folder}){
-
     var key = UniqueKey();
     var appKey = GlobalKey();
     // folder ??= _fileManager.root;
     generateSimpleDraggableWindow(FilesApp(title: "File Manager",appKey: appKey, key: key,currentFolder: folder??_fileManager.root));
 
   }
-  void startVideoApp(String url){
-
+  void startWidgetTreeApp({Folder? folder}){
     var key = UniqueKey();
     var appKey = GlobalKey();
-
-    generateSimpleDraggableWindow(VideoPlayerApp(title: "Video Player",appKey: appKey, key: key,videoUrl: url));
+    // folder ??= _fileManager.root;
+    generateSimpleDraggableWindow(WidgetTreeApp(title: "File Manager(New)",appKey: appKey, key: key));
 
   }
-
-  void startPhotoPreviewApp(String? path,Uint8List? memory){
-
+  void startCalculatorApp(){
     var key = UniqueKey();
     var appKey = GlobalKey();
+    generateSimpleDraggableWindow(CalculatorApp(key: key,appKey: appKey, title: "Calculator"));
+  }
+  void startPdfApp(String path){
+    var key = UniqueKey();
+    var appKey = GlobalKey();
+    generateSimpleDraggableWindow(PdfReaderApp(title: "PDF Reader",appKey: appKey,key: key,path: path,));
+  }
+  void startMazeGame(){
+    var key = UniqueKey();
+    var appKey = GlobalKey();
+    generateSimpleDraggableWindow(MazeGameApp(title: "Game",appKey: appKey,key: key));
+  }
+  void startHtmlReader(String path){
+    var key = UniqueKey();
+    var appKey = GlobalKey();
+    generateSimpleDraggableWindow(HtmlReaderApp(title: "HTML Reader",appKey: appKey,key: key,path: path,));
+  }
+  void startPainterApp(){
+    var key = UniqueKey();
+    var appKey = GlobalKey();
+    generateSimpleDraggableWindow(PainterApp(title: "Painter",appKey: appKey, key: key,));
 
+  }
+  void startVideoApp(String url){
+    var key = UniqueKey();
+    var appKey = GlobalKey();
+    generateSimpleDraggableWindow(VideoPlayerApp(title: "Video Player",appKey: appKey, key: key,videoUrl: url));
+  }
+  void startPhotoPreviewApp(String? path,Uint8List? memory){
+    var key = UniqueKey();
+    var appKey = GlobalKey();
     generateSimpleDraggableWindow(PhotoPreviewApp(title: "Photos",appKey: appKey, key: key ,path: path,memory: memory,));
-
   }
 
 
@@ -204,7 +188,6 @@ class WindowManager{
         default:
       }
    }
-
 
    void hideAllOfType(FileType fileType){
        windows.forEach((element) { if(element.childWidget.getFileType() == fileType)

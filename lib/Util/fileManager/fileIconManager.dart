@@ -12,6 +12,7 @@ class IconManager{
       case FileType.APP_HTML_READER :  return  getPath("ic_html");
       case FileType.APP_IMAGE_PREVIEW :  return  getPath("ic_photo");
       case FileType.FOLDER :  return  getPath("folder");
+      case FileType.WIDGET_TREE :  return  getPath("folder");
       case FileType.VIDEO :  return  getPath("ic_video");
       case FileType.PDF :  return  getPath("ic_pdf_file");
       case FileType.HTML :  return  getPath("ic_html_file");
@@ -27,9 +28,19 @@ class IconManager{
 
 
 enum FileType {
+  WIDGET_TREE,
   FOLDER,
-  PICTURE,VIDEO,MUSIC,
-  APP_CALCULATOR,APP_FILE_MANAGER,APP_VIDEO_PLAYER,APP_PAINTER,APP_IMAGE_PREVIEW,APP_PDF_READER,APP_HTML_READER,APP_MAZE_GAME,
-  PDF,HTML
+  PICTURE,
+  VIDEO,
+  MUSIC,
+  APP_CALCULATOR,
+  APP_FILE_MANAGER,
+  APP_VIDEO_PLAYER,
+  APP_PAINTER,
+  APP_IMAGE_PREVIEW,
+  APP_PDF_READER,
+  APP_HTML_READER,
+  APP_MAZE_GAME,
+  PDF,
+  HTML
 }
-

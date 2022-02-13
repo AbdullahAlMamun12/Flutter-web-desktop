@@ -181,41 +181,57 @@ class _DockState extends State<Dock> {
 
   }
 
-
-  List<Widget> getList(){
+  List<Widget> getList() {
     var x1 = getOffset();
     List<Widget> list = [];
-    for(int  i = 0 ; i<widget.controller.items.length;i++){
-      var dx = getButtons(i,x1);
-      list.add(Expanded(
-        child: Container(
-          child: Column(
-            children: [
-              i == currentIndex && _offset!= 0? Card(
-                  color: Color.lerp(Colors.black, Colors.transparent, 0.5),
-                  child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0,horizontal: 8),
-                child: Text(widget.controller.items[i].name,style: TextStyle(color: Colors.white,fontSize: 10,),textAlign: TextAlign.center,),
-              )):Container(),
-              Container(
-                margin: EdgeInsets.only(bottom: dx/3),
-                height:   _defaultSize + dx,
-                width:  _defaultSize + dx,
-                child: Image.asset(widget.controller.items[i].getIcon())
-              ),
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: widget.controller.items[i].isActive? Material(
-                    elevation: 4,
-                    color: Colors.transparent,
-                    child: Icon(Icons.circle,color: Colors.white,size: 5,)):Container(),
-              )
-            ],
+    for (int i = 0; i < widget.controller.items.length; i++) {
+      var dx = getButtons(i, x1);
+      list.add(
+        Expanded(
+          child: Container(
+            child: Column(
+              children: [
+                i == currentIndex && _offset != 0
+                    ? Card(
+                        color:
+                            Color.lerp(Colors.black, Colors.transparent, 0.5),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 4.0, horizontal: 8),
+                          child: Text(
+                            widget.controller.items[i].name,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ))
+                    : Container(),
+                Container(
+                    margin: EdgeInsets.only(bottom: dx / 3),
+                    height: _defaultSize + dx,
+                    width: _defaultSize + dx,
+                    child: Image.asset(widget.controller.items[i].getIcon())),
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: widget.controller.items[i].isActive
+                      ? Material(
+                          elevation: 4,
+                          color: Colors.transparent,
+                          child: Icon(
+                            Icons.circle,
+                            color: Colors.white,
+                            size: 5,
+                          ))
+                      : Container(),
+                )
+              ],
+            ),
           ),
         ),
-      ),);
+      );
     }
-    return list ;
-
+    return list;
   }
 }
